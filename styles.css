@@ -1,0 +1,1364 @@
+/* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top bar */
+.top-bar {
+    background-color: #000;
+    color: #fff;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* Header */
+header {
+    padding: 20px 0;
+    background-color: #f4f4f4;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 400px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+}
+
+.contact-info a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Navigation */
+nav {
+    background-color: #333;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: #555;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 200px;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Improved dropdown menu accessibility */
+.dropdown > a::after {
+    content: '\25BC';
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.dropdown:focus-within .submenu {
+    display: block;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    background-color: #333;
+    height: 3px;
+    width: 100%;
+}
+
+/* Responsive Navigation */
+.nav-menu {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .logo img{
+        width: 100%;
+    }
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: relative;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 80%;
+        background-color: #333;
+        z-index: 1000;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .nav-menu.active {
+        display: block;
+        right: 0;
+    }
+
+    .menu {
+        flex-direction: column;
+        padding-left: 0;
+    }
+
+    .menu li {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .menu a {
+        padding: 15px;
+        display: block;
+    }
+    @media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        position: static;
+        height: auto;
+        background-color: #333;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        display: none;
+    }
+
+    .dropdown.active .submenu {
+        display: block;
+    }
+}
+    /* Hide phone number and search bar on mobile */
+    .search-bar, .contact-info {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        position: static;
+        height: auto;
+        background-color: #333;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        display: none;
+    }
+
+    .dropdown.active .submenu {
+        display: block;
+    }
+}
+/* Show phone number and search bar on desktop */
+@media (min-width: 769px) {
+    .search-bar, .contact-info {
+        display: block;
+    }
+}
+
+/* Additional breakpoint for larger screens */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+
+    .logo img {
+        max-width: 400px;
+    }
+}
+
+
+
+/* Hero section */
+.hero {
+    background-image: url('img/students.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+/* Services section */
+.services {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-item i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+@media (max-width: 768px){
+    .service-grid{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Destinations section */
+.destinations {
+    padding: 50px 0;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.destination-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.destination-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.destination-item:hover img {
+    transform: scale(1.1);
+}
+
+.destination-item h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .destination-grid{
+        display: flex;
+        flex-direction: column;
+    }
+}
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-logo img {
+    max-width: 400px;
+}
+
+.footer-links ul {
+    list-style-type: none;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-social .social-icons {
+    margin-top: 10px;
+}
+
+.footer-social .social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+@media (max-width: 768px){
+    .footer-logo img{
+        width: 100%;
+    }
+
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-logo{
+        padding-bottom: 20px;
+    }
+
+    .footer-links{
+        padding-bottom: 20px;
+    }
+}
+
+/* Team hero section */
+.team-hero {
+    background-image: url('img/team.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.team-hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Team members section */
+.team-members {
+    padding: 50px 0;
+}
+
+.team-member {
+    display: flex;
+    margin-bottom: 50px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.member-info {
+    flex: 1;
+    padding: 30px;
+}
+
+.member-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.member-info h3 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.member-photo-contact {
+    flex: 0 0 300px;
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.member-photo-contact img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .team-member {
+        flex-direction: column;
+    }
+
+    .member-photo-contact {
+        order: -1;
+    }
+}
+
+/* Contact hero section */
+.contact-hero {
+    background-image: url('img/contact.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.contact-hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Contact info and map section */
+.contact-details {
+    padding: 50px 0;
+}
+
+.contact-details a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.info-map-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-item i {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #333;
+}
+
+.map {
+    flex: 1;
+}
+
+/* Contact form section */
+.contact-form {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .info-map-wrapper {
+        flex-direction: column;
+    }
+
+    .info {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* About hero section */
+.about-hero {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.about-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* About content section */
+.about-content {
+    padding: 50px 0;
+}
+
+.about-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-intro, .about-mission, .about-services, .about-approach, .about-why-choose, .about-conclusion {
+    margin-bottom: 40px;
+}
+
+.about-services ul, .about-why-choose ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.about-services li, .about-why-choose li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.about-services li:before, .about-why-choose li:before {
+    content: "\2022";
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.about-conclusion {
+    font-style: italic;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 36px;
+    }
+
+    .about-content h2 {
+        font-size: 24px;
+    }
+}
+
+/* Australia hero section */
+.australia-hero {
+    background-image: url('img/australia.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.australia-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.australia-hero p {
+    font-size: 18px;
+}
+
+/* Australia content section */
+.australia-content {
+    padding: 50px 0;
+}
+
+.australia-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.australia-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.australia-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.australia-content ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.australia-content li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.australia-content li:before {
+    content: "\2022";
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.why-australia, .courses-universities, .admission-requirements, .visa-process, .scholarships, .cost, .cultural-support, .work-opportunities, .tips {
+    margin-bottom: 40px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .australia-hero h1 {
+        font-size: 36px;
+    }
+
+    .australia-content h2 {
+        font-size: 24px;
+    }
+
+    .australia-content h3 {
+        font-size: 20px;
+    }
+}
+
+/* Canada hero section */
+.canada-hero {
+    background-image: url('img/canada.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.canada-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.canada-hero p {
+    font-size: 18px;
+}
+
+/* Canada content section */
+.canada-content {
+    padding: 50px 0;
+}
+
+.canada-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.canada-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.canada-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.canada-content ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.canada-content li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.canada-content li:before {
+    content: "\2022";
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.why-canada, .courses-universities, .admission-requirements, .visa-process, .scholarships, .cost, .cultural-support, .work-opportunities, .tips, .weather, .healthcare, .permanent-residency {
+    margin-bottom: 40px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .canada-hero h1 {
+        font-size: 36px;
+    }
+
+    .canada-content h2 {
+        font-size: 24px;
+    }
+
+    .canada-content h3 {
+        font-size: 20px;
+    }
+}
+
+/*UK Hero Section */
+.uk-hero {
+    background-image: url('img/UK.jpg'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.uk-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.uk-hero p {
+    font-size: 18px;
+}
+
+/* Study Content Section */
+.study-content {
+    padding: 50px 0;
+}
+
+.study-section {
+    margin-bottom: 40px;
+}
+
+.study-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.study-section h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.study-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.study-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.study-list li::before {
+    content: "\2022";
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .study-hero h1 {
+        font-size: 36px;
+    }
+
+    .study-content h2 {
+        font-size: 24px;
+    }
+
+    .study-content h3 {
+        font-size: 20px;
+    }
+}
+
+
+/* Europe Hero */
+.europe-hero {
+    background-image: url('img/europe.jpg'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.europe-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.europe-hero p {
+    font-size: 18px;
+}
+
+/* NZ Hero */
+.nz-hero {
+    background-image: url('img/new-zealand.jpg'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.nz-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.nz-hero p {
+    font-size: 18px;
+}
+
+/* US Hero */
+.us-hero {
+    background-image: url('img/usa.jpg'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.us-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.us-hero p {
+    font-size: 18px;
+}
+
+/* IELTS Hero */
+
+.ielts-hero{
+    background-image: url('img/IELTS_logo.png'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px;
+    color: #000;
+}
+
+.ielts-hero h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.ielts-hero p{
+    font-size: 18px;
+}
+
+/* IELTS Table */
+.ielts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.ielts-table th,
+.ielts-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.ielts-table th {
+    background-color: #004080;
+    color: #fff;
+}
+
+.ielts-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.ielts-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Study List */
+.study-list li {
+    margin-bottom: 10px;
+}
+
+
+/* PTE Hero */
+
+.pte-hero{
+    background-image: url('img/PTE.png'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px;
+    color: #000;
+}
+
+.pte-hero h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.pte-hero p{
+    font-size: 18px;
+}
+
+
+/* PTE Table */
+.pte-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.pte-table th,
+.pte-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.pte-table th {
+    background-color: #004080;
+    color: #fff;
+}
+
+.pte-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.pte-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Study List */
+.study-list li {
+    margin-bottom: 10px;
+}
+
+/* TOEFL Hero */
+.toefl-hero{
+    background-image: url('img/TOEFL_Logo.png'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px;
+    color: #000;
+}
+
+.toefl-hero h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.toefl-hero p{
+    font-size: 18px;
+}
+
+/* TOEFL Table */
+.toefl-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.toefl-table th,
+.toefl-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.toefl-table th {
+    background-color: #004080;
+    color: #fff;
+}
+
+.toefl-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.toefl-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Study List */
+.study-list li {
+    margin-bottom: 10px;
+}
+
+/* SAT Hero */
+.sat-hero{
+    background-image: url('img/sat.png'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px;
+    color: #000;
+}
+
+.sat-hero h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.sat-hero p{
+    font-size: 18px;
+}
+
+/* Study List */
+.study-list li {
+    margin-bottom: 10px;
+}
+
+
+/* GMAT Hero */
+.gmat-hero{
+    background-image: url('img/GMAT.png'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px;
+    color: #000;
+}
+
+.gmat-hero h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.gmat-hero p{
+    font-size: 18px;
+}
+
+/* GMAT Table */
+.gmat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.gmat-table th,
+.gmat-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.gmat-table th {
+    background-color: #004080;
+    color: #fff;
+}
+
+.gmat-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.gmat-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Study List */
+.study-list li {
+    margin-bottom: 10px;
+}
+
+
+/* GMAT Hero */
+.gre-hero{
+    background-image: url('img/GRE.png'); /* Replace with relevant image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px 0;
+    color: #000;
+}
+
+.gre-hero h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.gre-hero p{
+    font-size: 18px;
+}
+
+
+/* GRE Table */
+.gre-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.gre-table th,
+.gre-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.gre-table th {
+    background-color: #004080;
+    color: #fff;
+}
+
+.gre-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.gre-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Study List */
+.study-list li {
+    margin-bottom: 10px;
+}
+
+/* Conclusion Section */
+.conclusion-section {
+    margin-top: 30px;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.testimonial-section h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.testimonial-card-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.arrow-btn {
+    background-color: #004080;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.arrow-btn:hover {
+    background-color: #003060;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+}
+
+.testimonial-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.testimonial-card .name {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #004080;
+}
